@@ -1,56 +1,44 @@
-# Live Campus Hub
+# Live Campus Hub – MMP Sprint 2
 
 ## Project Description
-Live Campus Hub is a web-based platform designed to provide students with centralized access to campus services such as events, transport schedules, clubs, and rewards. 
-The system improves student engagement and simplifies access to important university information.
+Live Campus Hub is a web-based student platform that provides access to campus events, clubs, transport, library services, rewards, and shop features.
 
+## Improvements from MVP to MMP
+- Added admin shop management
+- Added CRUD functionality for shop items
+- Improved login and registration system
+- Added CAPTCHA for extra security
+- Added rewards and history features
+- Improved search functionality
+- Improved UI and page navigation
+- Improved project organisation and GitHub collaboration
 
-##  Features
-- User Login and Registration System
-- Campus Events Information
-- Transport Schedule and Navigation
-- Student Clubs and Societies
-- Rewards and Points System
-- Search Functionality
+## Main Features
+- Login and registration
+- Events information
+- Clubs section
+- Transport information
+- Library page
+- Search functionality
+- Rewards system
+- Shop page
+- Admin shop CRUD features
 
-
-
-##  Technologies Used
+## Technologies Used
 - PHP
 - MySQL
-- HTML & CSS
+- HTML
+- CSS
 - JavaScript
+- GitHub
 
----
-
-##  Team Members (Bhakte Guys)
-
-- Aasha Bhandari – Database Analyst  
-- Ankit Kafle – Security Consultant  
-- Asmita Tamang – Business Analyst  
-- Avishek Siwakoti – Software Developer  
-- Bipin Lamichhane – Database Analyst  
-- Karuna Kumari Kalathoki – Database Analyst  
-- Kebal Kharel – Project Manager  
-- Nimesh Dulal – Software Developer  
-- Sulav Bartaula – Software Developer  
-
----
-
-##  Project Manager Role
-Kebal Kharel coordinated the project, managed GitHub collaboration, ensured task distribution, and integrated all modules into a working MVP system.
-
-
-##  Repository Structure
-- PHP files for backend functionality  
-- CSS for styling  
-- JavaScript for interactivity  
-- Assets folder for images and resources  
-
-
-
-##  Future Improvements
-- Mobile application version  
-- Real-time notifications  
-- Advanced search and filtering  
-- Integration with university systems  
+## Team Members
+- Kebal Kharel – Project Manager
+- Aasha Bhandari – Database Analyst
+- Ankit Kafle – Security Consultant
+- Asmita Tamang – Business Analyst
+- Avishek Siwakoti – Software Developer
+- Bipin Lamichhane – Database Analyst
+- Karuna Kumari Kalathoki – Database Analyst
+- Nimesh Dulal – Software Developer
+- Sulav Bartaula – Software Developer
