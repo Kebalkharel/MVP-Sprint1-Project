@@ -48,7 +48,7 @@ $error = "Registration failed.";
 <html>
 <head>
 <title>Register</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20">
 </head>
 
 <body>
