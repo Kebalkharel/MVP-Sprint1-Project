@@ -6,79 +6,90 @@ $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$email = trim($_POST["email"]);
-$password = trim($_POST["password"]);
+    $email = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
 
-$stmt = $mysqli->prepare("SELECT * FROM students WHERE email=?");
-$stmt->bind_param("s",$email);
-$stmt->execute();
+    $stmt = $mysqli->prepare("SELECT * FROM students WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
 
-$result = $stmt->get_result();
+    $result = $stmt->get_result();
 
-if ($row = $result->fetch_assoc()) {
+    if ($result->num_rows == 1) {
 
-if (password_verify($password, $row["password"])) {
+        $user = $result->fetch_assoc();
 
-session_regenerate_id(true);
+        if (password_verify($password, $user["password"])) {
 
-$_SESSION["user_id"] = $row["id"];
-$_SESSION["user_name"] = $row["name"];
-$_SESSION["user_email"] = $row["email"];
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["name"] = $user["name"];
 
-header("Location:index.php");
-exit();
+            header("Location: index.php");
+            exit();
 
-} else {
+        } else {
+            $error = "Invalid password";
+        }
 
-$error = "Incorrect password";
-
-}
-
-} else {
-
-$error = "Student not found";
-
-}
-
+    } else {
+        $error = "Student account not found";
+    }
 }
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
-<link rel="stylesheet" href="style.css">
+    <title>Live Campus Hub - Login</title>
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 
 <body>
 
 <div class="login-page">
-<div class="login-box">
 
-<h1>Live Campus Hub</h1>
-<p class="login-subtitle">Student Login</p>
+    <div class="login-card">
 
-<?php if(!empty($error)){ ?>
-<p class="error-message"><?php echo $error; ?></p>
-<?php } ?>
+        <img src="images/wlv-logo.jpg" class="login-logo">
 
-<form method="POST">
+        <h1>Live Campus Hub</h1>
 
-<label>Email</label>
-<input type="email" name="email" placeholder="student@wlv.ac.uk" required>
+        <p class="login-subtitle">
+            University of Wolverhampton Student Platform
+        </p>
 
-<label>Password</label>
-<input type="password" name="password" required>
+        <?php if($error != "") { ?>
+            <div class="error-box">
+                <?php echo htmlspecialchars($error); ?>
+            </div>
+        <?php } ?>
 
-<button type="submit">Login</button>
+        <form method="POST">
 
-</form>
+            <input type="email"
+                   name="email"
+                   placeholder="Student Email"
+                   required>
 
-<p class="demo-text">
-New student? <a href="register.php">Register</a>
-</p>
+            <input type="password"
+                   name="password"
+                   placeholder="Password"
+                   required
+                   minlength="6">
 
-</div>
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <div class="register-link">
+            New student?
+            <a href="register.php">Create Account</a>
+        </div>
+
+    </div>
+
 </div>
 
 </body>
